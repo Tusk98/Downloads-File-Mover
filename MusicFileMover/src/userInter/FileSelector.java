@@ -72,7 +72,7 @@ public class FileSelector {
         
       }
     });
-    moveFilesBtn.setBounds(117, 199, 115, 29);
+    moveFilesBtn.setBounds(117, 199, 139, 29);
     frmFileMover.getContentPane().add(moveFilesBtn);
     
     // Check box for moving MP3 files
