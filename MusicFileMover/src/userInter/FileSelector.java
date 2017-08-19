@@ -60,7 +60,7 @@ public class FileSelector {
       public void actionPerformed(ActionEvent arg0) {
         
         String [] options = new String[3];
-        // Filling in the document options according to whether the checkbox was clicked
+        // Filling in the document options according to whether the check box was clicked
         if (mp3)
           options[0] = ".mp3";
         if (pdf) 
@@ -97,7 +97,7 @@ public class FileSelector {
     pdfCheckBox.setBounds(114, 94, 139, 29);
     frmFileMover.getContentPane().add(pdfCheckBox);
     
-    // Check box for moving Word(docx) files
+    // Check box for moving Word(doc x) files
     JCheckBox docxCheckBox = new JCheckBox("Word (docx) files");
     docxCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
     docxCheckBox.addActionListener(new ActionListener() {
