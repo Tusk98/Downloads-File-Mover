@@ -1,2 +1,2 @@
 # Downloads-File-Mover
-Java application to move files from Downloads file into Desktop.
+Java application to move files from Downloads file into Desktop on Windows OS. 
