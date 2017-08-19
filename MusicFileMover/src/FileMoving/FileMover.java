@@ -4,10 +4,17 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 
+import javax.swing.JOptionPane;
+
 public class FileMover {
 
   public static void main (String [] args) { 
-    moveLister(".mp3");
+    for (String k : args) { 
+      if (k != null) { 
+        moveLister(k);
+      }
+    }
+    JOptionPane.showMessageDialog(null, "Files have been moved");
   }
   
   /** 
