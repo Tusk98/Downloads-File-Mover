@@ -2,19 +2,20 @@ package FileMoving;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-
+import java.nio.file.*;
 
 public class FileMover {
 
   public static void main (String [] args) { 
-    moveLister();
+    moveLister(".mp3");
   }
   
-  public static void moveLister() { 
+  /** 
+   * Searches default /Downloads/ directory for all files with indicated fileEnding in parameter.
+   * Then calls copyFile and deleteFile to move the matching files onto Desktop.
+   * @param fileEnding String representing file suffix
+   */
+  public static void moveLister(String fileEnding) { 
     // Store list of files
     String home = System.getProperty("user.home");
     File file = new File(home + "/Downloads/");
@@ -25,10 +26,16 @@ public class FileMover {
 
     // Copy .mp3 files
     for (String fileName: files) { 
-      if (fileName.endsWith(".mp3")) { 
+      if (fileName.endsWith(fileEnding)) { 
         File source = new File (home + "/Downloads/" + fileName); 
         System.out.println(source.toPath());
-        moveFolder(source);
+        boolean copied = copyFile(source);
+        
+        // Delete file from Downloads if successfully copied
+        if (copied) { 
+          deleteFile(source); 
+        } 
+        
       }
     }
     
@@ -49,7 +56,14 @@ public class FileMover {
     
   }
 
-  public static void moveFolder(File source) { 
+  /**
+   * This method takes in the file source, and then copies the file to the
+   * User's /Desktop/File_Mover directory.
+   * @param source File to transfer
+   * @return true if successful, false otherwise
+   */
+  public static boolean copyFile(File source) { 
+    boolean success = false;
     Path sourcePath = source.toPath();
     String fileName = source.getName(); 
     String exitPath = System.getProperty("user.home") + "/Desktop/File_Mover";
@@ -57,12 +71,27 @@ public class FileMover {
     
     try { 
     Files.copy(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+    success = true;
     } catch (IOException io) { 
-      io.printStackTrace();
+      success = false;
     }
     
+    return success;
   }
   
+  /**
+   * Deletes the file indicated in the source parameter.
+   * @param source File object for the file to delete.
+   */
+  public static void deleteFile(File source) { 
+    try { 
+      Files.delete(source.toPath());
+    } catch (NoSuchFileException nsfe) { 
+      System.out.println("No such file exists for deletion.");
+    } catch (IOException io) { 
+      System.out.println(io);
+    }
+  }
   
 
 }
