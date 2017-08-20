@@ -59,14 +59,16 @@ public class FileSelector {
     moveFilesBtn.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent arg0) {
         
-        String [] options = new String[3];
+        String [] options = new String[4];
         // Filling in the document options according to whether the check box was clicked
         if (mp3)
           options[0] = ".mp3";
         if (pdf) 
           options[1] = ".pdf"; 
-        if (docx) 
+        if (docx) {
           options[2] = ".docx";
+          options[3] = ".doc";
+        }
         
         FileMover.main(options);
         
