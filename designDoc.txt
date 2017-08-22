@@ -1,0 +1,74 @@
+Name of app: ??
+relocate
+..
+Version formatting (vx.y.z.r)
+x = major change (UI overhaul, new feature, new OS)
+y = minor change (large group of bugfixes, enhanced feature)
+z = bugfix release
+r = dev stage designation (0 = alpha, 1 = beta, 2 = release-ready, 3 = final release ver)
+	Every update of r will reset the release format (back to v1.0.0)
+
+======================================================================
+
+Downloads-File-Mover
+Final idea:
+A desktop app that aims to improve the browsing experience by automatically sorting downloads to destinations chosen by the user.
+
+The final app will have the following features:
+Selecting to save a file will skip the Save As popup and pass to the download step
+An .exe application will bring the user to a menu to customize everything about the app
+File type => destination (Call this a path)
+List of selected file types
+Default paths?
+Toggles for settings (suppressing the save as popup)
+
+======================================================================
+Versions:
+ 
+Initial repository (v1.0.0.0)
+Includes an Executable Jar file that allows the user to select .mp3, .pdf, and .doc/.docx file type(s) to move
+Successfully identifies .mp3, .pdf, and .doc/.docx files
+Creates a new folder at /Desktop/File_Mover and moves the selected file type(s) into the folder
+
+
+
+
+
+======================================================================
+
+Design:
+
+Designing from front -> back:
+	Taking in user input will be very important.
+The frontend app will consist of the following:
+Popup when you first open the app that explains what it does
+Add Paths sequence:
+Prompt for the user to select one (or more) file types
+¡°What types of files should be moved?¡±
+Search bar + autofill + dropdown list of file types
+Prompt for the user to select destination
+¡°Where should this/these file(s) be moved?¡±
+Browse button to find a path
+End screen
+¡°Add more¡± option
+Goes back to 1.
+¡°Finished¡± option 
+Takes all of the user¡¯s selected paths and adds them to the program 
+View paths:
+Users are able to search through a list of their custom file types with paths (.mp3s to /user/Music, .pdf to /user/Documents/school_notes)
+The file types in the list will be selectable and clicking it will open/display the path destination.
+
+
+======================================================================
+
+Features to Consider for the Future:
+
+Categorizing files by keyword/string in filename
+Ex: .mp4 files with the string ¡°Game-of-Thrones¡± can be moved to a different folder than other .mp4 files
+Categorizing files by the site you download from
+Doable if we can scrape ¡°downloaded from¡± data from files
+Compare strings? If .pdf is downloaded from a site that includes ¡°http://uwaterloo.ca¡±, move it to a different folder than other .pdf files
+The above method would allow for user defined specificity 
+I.e.
+Could be as broad as: any .mp4 from kissanime is saved to ../Anime
+Or as specific as: any .pdf from (professor¡¯s assignment hosting site) is saved to ../Assignments
