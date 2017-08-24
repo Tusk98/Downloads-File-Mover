@@ -8,6 +8,11 @@ import javax.swing.JOptionPane;
 
 public class FileMover {
 
+  /**
+   * Method that begins moving files depending on file extensions provided in 
+   * args parameter.
+   * @param args Array of Strings for file extensions
+   */
   public static void main (String [] args) { 
     for (String k : args) { 
       if (k != null) { 
