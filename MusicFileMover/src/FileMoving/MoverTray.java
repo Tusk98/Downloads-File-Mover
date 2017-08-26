@@ -18,11 +18,11 @@ import FileMoving.DownloadsWatcher;
 public class MoverTray {
   static TrayIcon trayIcon;
   static DownloadsWatcher dlw; 
-  static TrayMenu tm = new TrayMenu();
-
+  static TrayMenu tm;
+  
   public MoverTray() { 
     showTrayIcon();
-    tm.startUpMenu();
+    TrayMenu.main(null);
   }
   
   /**

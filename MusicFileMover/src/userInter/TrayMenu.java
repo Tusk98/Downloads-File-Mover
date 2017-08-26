@@ -24,9 +24,10 @@ public class TrayMenu {
     initialize();
   }
   
+  /*
   public static void main (String [] args) { 
     TrayMenu.startUpMenu();
-  }
+  }*/
   
   /**
    * Launch the application.
@@ -43,6 +44,8 @@ public class TrayMenu {
       }
     });
   }
+  
+  
   
   /**
    * Helper method to make a String array that checks mp3, pdf and 
