@@ -22,7 +22,7 @@ public class MoverTray {
   
   public MoverTray() { 
     showTrayIcon();
-    TrayMenu.main(null);
+    //TrayMenu.main(null);
   }
   
   /**
@@ -35,7 +35,7 @@ public class MoverTray {
       System.exit(0);
       return;
     }
-    dlw = new DownloadsWatcher();
+    //dlw = new DownloadsWatcher();
     
     //Creating the tray icon
     trayIcon = new TrayIcon(createIcon("/Images/icon.png", "Tray Icon"));
@@ -86,8 +86,8 @@ public class MoverTray {
     return (new ImageIcon(imageURL, desc)).getImage();
   } 
   
-  public static void main (String [] args) { 
+  /*public static void main (String [] args) { 
     MoverTray moveTee = new MoverTray();
-  }
+  }*/
   
 }

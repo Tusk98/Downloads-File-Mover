@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import FileMoving.DownloadsWatcher;
 import FileMoving.FileMover;
+import FileMoving.MoverTray;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -24,10 +26,10 @@ public class TrayMenu {
     initialize();
   }
   
-  /*
+  
   public static void main (String [] args) { 
     TrayMenu.startUpMenu();
-  }*/
+  }
   
   /**
    * Launch the application.
@@ -71,7 +73,7 @@ public class TrayMenu {
    */
   private void initialize() {
     frmDownloadsfilemover = new JFrame();
-    frmDownloadsfilemover.setTitle("Downloads-File-Mover options");
+    frmDownloadsfilemover.setTitle("autoSort options");
     frmDownloadsfilemover.setBounds(100, 100, 500, 300);
     frmDownloadsfilemover.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frmDownloadsfilemover.getContentPane().setLayout(null);
@@ -130,7 +132,9 @@ public class TrayMenu {
     backgroundProgramBtn.setFont(new Font("Tahoma", Font.PLAIN, 18));
     backgroundProgramBtn.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        
+        //MoverTray moveT = new MoverTray(); 
+        frmDownloadsfilemover.setVisible(false);
+        DownloadsWatcher dlw = new DownloadsWatcher();
       }
     });
     backgroundProgramBtn.setBounds(252, 199, 211, 29);
