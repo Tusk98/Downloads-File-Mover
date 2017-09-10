@@ -1,2 +1,3 @@
-# Downloads-File-Mover
+# autoSort
+
 Java application to move files from Downloads file into Desktop on Windows OS. 
